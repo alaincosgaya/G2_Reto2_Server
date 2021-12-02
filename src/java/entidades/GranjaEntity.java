@@ -45,7 +45,7 @@ public class GranjaEntity implements Serializable{
     public GranjaEntity() {
     }
 
-    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, Granjero granjero, List<Zona> zonas, List<Trabajador> trabajadores) {
+    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, GranjeroEntity granjero, List<ZonaEntity> zonas, List<TrabajadorEntity> trabajadores) {
         this.idGranja = idGranja;
         this.nombreGranja = nombreGranja;
         this.fechaCreacion = fechaCreacion;

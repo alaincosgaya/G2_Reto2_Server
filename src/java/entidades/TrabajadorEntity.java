@@ -44,11 +44,11 @@ public class TrabajadorEntity extends UserEntity implements Serializable {
         this.salario = salario;
     }
 
-    public List<Contrato> getContratos() {
+    public List<ContratoEntity> getContratos() {
         return contratos;
     }
     
-    public void setGranjas(List<Contrato> contratos) {
+    public void setGranjas(List<ContratoEntity> contratos) {
         this.contratos = contratos;
     }
 

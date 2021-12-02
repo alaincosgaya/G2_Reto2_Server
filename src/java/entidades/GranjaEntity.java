@@ -14,7 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -39,19 +38,19 @@ public class GranjaEntity implements Serializable{
     @OneToMany
     private List<ZonaEntity> zonas;
     @Column
-    @ManyToMany
-    private List<TrabajadorEntity> trabajadores;
+    @OneToMany
+    private List<ContratoEntity> contratos;
 
     public GranjaEntity() {
     }
 
-    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, GranjeroEntity granjero, List<ZonaEntity> zonas, List<TrabajadorEntity> trabajadores) {
+    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, GranjeroEntity granjero, List<ZonaEntity> zonas, List<ContratoEntity> contratos) {
         this.idGranja = idGranja;
         this.nombreGranja = nombreGranja;
         this.fechaCreacion = fechaCreacion;
         this.granjero = granjero;
         this.zonas = zonas;
-        this.trabajadores = trabajadores;
+        this.contratos = contratos;
     }
     /**
      * 
@@ -132,18 +131,18 @@ public class GranjaEntity implements Serializable{
     }
     /**
      * 
-     * @return trabajadores
+     * @return contratos
      */
-    public List<TrabajadorEntity> getTrabajadores() {
-        return trabajadores;
+    public List<ContratoEntity> getContratos() {
+        return contratos;
     }
     
     /**
      * 
-     * @param trabajadores 
+     * @param contratos 
      */
-    public void setTrabajadores(List<TrabajadorEntity> trabajadores) {
-        this.trabajadores = trabajadores;
+    public void setContratos(List<ContratoEntity> contratos) {
+        this.contratos = contratos;
     }
 
     @Override
@@ -154,7 +153,7 @@ public class GranjaEntity implements Serializable{
         hash = 79 * hash + Objects.hashCode(this.fechaCreacion);
         hash = 79 * hash + Objects.hashCode(this.granjero);
         hash = 79 * hash + Objects.hashCode(this.zonas);
-        hash = 79 * hash + Objects.hashCode(this.trabajadores);
+        hash = 79 * hash + Objects.hashCode(this.contratos);
         return hash;
     }
 
@@ -185,7 +184,7 @@ public class GranjaEntity implements Serializable{
         if (!Objects.equals(this.zonas, other.zonas)) {
             return false;
         }
-        if (!Objects.equals(this.trabajadores, other.trabajadores)) {
+        if (!Objects.equals(this.contratos, other.contratos)) {
             return false;
         }
         return true;
@@ -193,7 +192,7 @@ public class GranjaEntity implements Serializable{
 
     @Override
     public String toString() {
-        return "Granja{" + "idGranja=" + idGranja + ", nombreGranja=" + nombreGranja + ", fechaCreacion=" + fechaCreacion + ", granjero=" + granjero + ", zonas=" + zonas + ", trabajadores=" + trabajadores + '}';
+        return "Granja{" + "idGranja=" + idGranja + ", nombreGranja=" + nombreGranja + ", fechaCreacion=" + fechaCreacion + ", granjero=" + granjero + ", zonas=" + zonas + ", contratos=" + contratos + '}';
     }
     
     

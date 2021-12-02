@@ -30,14 +30,14 @@ public class ZonaEntity implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaCreacionZona;
     @Column
-    private Granja granja;
+    private GranjaEntity granja;
     @Column
     @OneToMany
     private List<Animal> animales;
     @Column
     @ManyToMany
     @JoinTable
-    private List<Trabajador> trabajadores;
+    private List<TrabajadorEntity> trabajadores;
     
     public ZonaEntity(){
         

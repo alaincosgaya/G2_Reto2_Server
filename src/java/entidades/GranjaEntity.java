@@ -14,6 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -30,16 +33,19 @@ public class GranjaEntity implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaCreacion;
     @Column
-    private Granjero granjero;
+    @ManyToOne
+    private GranjeroEntity granjero;
     @Column
-    private List<Zona> zonas;
+    @OneToMany
+    private List<ZonaEntity> zonas;
     @Column
-    private List<Trabajador> trabajadores;
+    @ManyToMany
+    private List<TrabajadorEntity> trabajadores;
 
     public GranjaEntity() {
     }
 
-    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, Granjero granjero, List<Zona> zonas, List<Trabajador> trabajadores) {
+    public GranjaEntity(Long idGranja, String nombreGranja, Date fechaCreacion, GranjeroEntity granjero, List<ZonaEntity> zonas, List<TrabajadorEntity> trabajadores) {
         this.idGranja = idGranja;
         this.nombreGranja = nombreGranja;
         this.fechaCreacion = fechaCreacion;
@@ -47,52 +53,96 @@ public class GranjaEntity implements Serializable{
         this.zonas = zonas;
         this.trabajadores = trabajadores;
     }
-
+    /**
+     * 
+     * @return idGranja
+     */
     public Long getIdGranja() {
         return idGranja;
     }
-
+    /**
+     * 
+     * @param idGranja 
+     */
     public void setIdGranja(Long idGranja) {
         this.idGranja = idGranja;
     }
-
+    /**
+     * 
+     * @return nombreGranja
+     */
     public String getNombreGranja() {
         return nombreGranja;
     }
-
+    
+    /**
+     * 
+     * @param nombreGranja 
+     */
     public void setNombreGranja(String nombreGranja) {
         this.nombreGranja = nombreGranja;
     }
-
+    
+    /**
+     * 
+     * @return fechaCreacion
+     */
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
-
+    
+    /**
+     * 
+     * @param fechaCreacion 
+     */
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
-
-    public Granjero getGranjero() {
+    
+    /**
+     * 
+     * @return granjero
+     */
+    public GranjeroEntity getGranjero() {
         return granjero;
     }
-
-    public void setGranjero(Granjero granjero) {
+    
+    /**
+     * 
+     * @param granjero 
+     */
+    public void setGranjero(GranjeroEntity granjero) {
         this.granjero = granjero;
     }
-
-    public List<Zona> getZonas() {
+    
+    /**
+     * 
+     * @return zonas
+     */
+    public List<ZonaEntity> getZonas() {
         return zonas;
     }
-
-    public void setZonas(List<Zona> zonas) {
+    
+    /**
+     * 
+     * @param zonas 
+     */
+    public void setZonas(List<ZonaEntity> zonas) {
         this.zonas = zonas;
     }
-
-    public List<Trabajador> getTrabajadores() {
+    /**
+     * 
+     * @return trabajadores
+     */
+    public List<TrabajadorEntity> getTrabajadores() {
         return trabajadores;
     }
-
-    public void setTrabajadores(List<Trabajador> trabajadores) {
+    
+    /**
+     * 
+     * @param trabajadores 
+     */
+    public void setTrabajadores(List<TrabajadorEntity> trabajadores) {
         this.trabajadores = trabajadores;
     }
 

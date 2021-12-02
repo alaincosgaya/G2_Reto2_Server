@@ -19,7 +19,7 @@ import javax.persistence.Temporal;
  * @author Jonathan Camacho
  */
 @Entity
-//@Table(name = "animal", schema = "G2Lauserri")
+@Table(name = "animal", schema = "G2Lauserri")
 public class AnimalEntity implements Serializable {
 
     @Id

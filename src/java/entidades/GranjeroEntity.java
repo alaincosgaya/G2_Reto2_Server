@@ -15,21 +15,21 @@ import javax.persistence.Entity;
  * @author Idoia Ormaetxea
  */
 @Entity
-public class GranjeroEntity implements Serializable {
+public class GranjeroEntity extends UserEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private List<Granja> granjas;
+    private List<GranjaEntity> granjas;
     
     public GranjeroEntity (){
     
     }
 
-    public List<Granja> getGranjas() {
+    public List<GranjaEntity> getGranjas() {
         return granjas;
     }
 
-    public void setGranjas(List<Granja> granjas) {
+    public void setGranjas(List<GranjaEntity> granjas) {
         this.granjas = granjas;
     }
 

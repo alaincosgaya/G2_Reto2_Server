@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 /**
@@ -18,6 +19,7 @@ import javax.persistence.Temporal;
  * @author Idoia Ormaetxea
  */
 @Entity
+@Table(name="zona", schema = "G2Lauserri")
 public class ZonaEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

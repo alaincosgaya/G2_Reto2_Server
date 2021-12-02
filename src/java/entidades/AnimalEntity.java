@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +19,7 @@ import javax.persistence.Temporal;
  * @author Jonathan Camacho
  */
 @Entity
-//@Table(name = "animal", schema = "G2Lauserri")
+@Table(name = "animal", schema = "G2Lauserri")
 public class AnimalEntity implements Serializable {
 
     @Id
@@ -26,12 +28,15 @@ public class AnimalEntity implements Serializable {
     @Column
     private String nombreAnimal;
     @Column
+    @Enumerated(EnumType.STRING)
     private TipoAnimal tipo;
     @Column
+    @Enumerated(EnumType.STRING)
     private EstadoAnimal estado;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
     @Column
+    @Enumerated(EnumType.STRING)
     private SexoAnimal sexo;
     @Column
     @ManyToOne

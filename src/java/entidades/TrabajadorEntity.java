@@ -31,10 +31,10 @@ public class TrabajadorEntity extends UserEntity implements Serializable {
     private Long salario;
     @Column
     @OneToMany(cascade=ALL, mappedBy="")
-    private List<Contrato> contratos;
+    private List<ContratoEntity> contratos;
     @Column
     @ManyToMany()
-    private List<Zona> zonas;
+    private List<ZonaEntity> zonas;
 
     public Long getSalario() {
         return salario;
@@ -44,19 +44,19 @@ public class TrabajadorEntity extends UserEntity implements Serializable {
         this.salario = salario;
     }
 
-    public List<Contrato> getContratos() {
+    public List<ContratoEntity> getContratos() {
         return contratos;
     }
     
-    public void setGranjas(List<Contrato> contratos) {
+    public void setGranjas(List<ContratoEntity> contratos) {
         this.contratos = contratos;
     }
 
-    public List<Zona> getZonas() {
+    public List<ZonaEntity> getZonas() {
         return zonas;
     }
 
-    public void setZonas(List<Zona> zonas) {
+    public void setZonas(List<ZonaEntity> zonas) {
         this.zonas = zonas;
     }
 

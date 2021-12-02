@@ -1,6 +1,4 @@
 package entidades;
-
-import clases.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +31,7 @@ public class ZonaEntity implements Serializable{
     private GranjaEntity granja;
     @Column
     @OneToMany
-    private List<Animal> animales;
+    private List<AnimalEntity> animales;
     @Column
     @ManyToMany
     @JoinTable
@@ -67,15 +65,15 @@ public class ZonaEntity implements Serializable{
         this.fechaCreacionZona = fechaCreacionZona;
     }
 
-    public Granja getGranja() {
+    public GranjaEntity getGranja() {
         return granja;
     }
 
-    public void setGranja(Granja granja) {
+    public void setGranja(GranjaEntity granja) {
         this.granja = granja;
     }
 
-    public List<Animal> getAnimales() {
+    public List<AnimalEntity> getAnimales() {
         return animales;
     }
 
@@ -83,11 +81,11 @@ public class ZonaEntity implements Serializable{
         this.animales = animales;
     }
 
-    public List<Trabajador> getTrabajadores() {
+    public List<TrabajadorEntity> getTrabajadores() {
         return trabajadores;
     }
 
-    public void setTrabajadores(List<Trabajador> trabajadores) {
+    public void setTrabajadores(List<TrabajadorEntity> trabajadores) {
         this.trabajadores = trabajadores;
     }
 

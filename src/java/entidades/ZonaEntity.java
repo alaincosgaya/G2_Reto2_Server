@@ -77,7 +77,7 @@ public class ZonaEntity implements Serializable{
         return animales;
     }
 
-    public void setAnimales(List<Animal> animales) {
+    public void setAnimales(List<AnimalEntity> animales) {
         this.animales = animales;
     }
 

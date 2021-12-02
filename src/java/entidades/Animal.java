@@ -3,32 +3,53 @@ package entidades;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author Jonathan Camacho
  */
-public class Animal implements Serializable{
+@Entity
+//@Table(name = "animal", schema = "G2Lauserri")
+public class Animal implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idAnimal;
+    @Column
     private String nombreAnimel;
+    @Column
     private TipoAnimal tipo;
+    @Column
     private EstadoAnimal estado;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
+    @Column
     private SexoAnimal sexo;
-    private Zona zona;
+ //   @Column
+ //   @ManyToOne
+ //   private Zona zona;
 
     //constructor publico vacio
     public Animal() {
     }
+
     //constructor con parametros
-    public Animal(Long idAnimal, String nombreAnimel, TipoAnimal tipo, EstadoAnimal estado, Date fechaNacimiento, SexoAnimal sexo, Zona zona) {
+    public Animal(Long idAnimal, String nombreAnimel, TipoAnimal tipo, EstadoAnimal estado, Date fechaNacimiento, SexoAnimal sexo) {
         this.idAnimal = idAnimal;
         this.nombreAnimel = nombreAnimel;
         this.tipo = tipo;
         this.estado = estado;
         this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
-        this.zona = zona;
+//        this.zona = zona;
     }
 
     //getters and setters
@@ -72,7 +93,7 @@ public class Animal implements Serializable{
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public SexoAnimal getSexo(){
+    public SexoAnimal getSexo() {
         return sexo;
     }
 
@@ -80,13 +101,13 @@ public class Animal implements Serializable{
         this.sexo = sexo;
     }
 
-    public Zona getZona() {
-        return zona;
-    }
+//    public Zona getZona() {
+ //       return zona;
+ //   }
 
-    public void setZona(Zona zona) {
-        this.zona = zona;
-    }
+  //  public void setZona(Zona zona) {
+ //       this.zona = zona;
+ //   }
 
     //metodos
     @Override
@@ -98,7 +119,7 @@ public class Animal implements Serializable{
         hash = 67 * hash + Objects.hashCode(this.estado);
         hash = 67 * hash + Objects.hashCode(this.fechaNacimiento);
         hash = 67 * hash + Objects.hashCode(this.sexo);
-        hash = 67 * hash + Objects.hashCode(this.zona);
+//        hash = 67 * hash + Objects.hashCode(this.zona);
         return hash;
     }
 
@@ -132,16 +153,15 @@ public class Animal implements Serializable{
         if (!Objects.equals(this.sexo, other.sexo)) {
             return false;
         }
-        if (!Objects.equals(this.zona, other.zona)) {
-            return false;
-        }
+//        if (!Objects.equals(this.zona, other.zona)) {
+ //           return false;
+ //       }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "idAnimal=" + idAnimal + ", nombreAnimel=" + nombreAnimel + ", tipo=" + tipo + ", estado=" + estado + ", fechaNacimiento=" + fechaNacimiento + ", sexoAnimal=" + sexo + ", zona=" + zona + '}';
+        return "Animal{" + "idAnimal=" + idAnimal + ", nombreAnimel=" + nombreAnimel + ", tipo=" + tipo + ", estado=" + estado + ", fechaNacimiento=" + fechaNacimiento + ", sexoAnimal=" + sexo + ", zona=" + '}';
     }
-    
-    
+
 }

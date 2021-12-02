@@ -33,23 +33,23 @@ public class Animal implements Serializable {
     private Date fechaNacimiento;
     @Column
     private SexoAnimal sexo;
- //   @Column
- //   @ManyToOne
- //   private Zona zona;
+    @Column
+    @ManyToOne
+    private Zona zona;
 
     //constructor publico vacio
     public Animal() {
     }
 
     //constructor con parametros
-    public Animal(Long idAnimal, String nombreAnimel, TipoAnimal tipo, EstadoAnimal estado, Date fechaNacimiento, SexoAnimal sexo) {
+    public Animal(Long idAnimal, String nombreAnimel, TipoAnimal tipo, EstadoAnimal estado, Date fechaNacimiento, SexoAnimal sexo, Zona zona) {
         this.idAnimal = idAnimal;
         this.nombreAnimel = nombreAnimel;
         this.tipo = tipo;
         this.estado = estado;
         this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
-//        this.zona = zona;
+        this.zona = zona;
     }
 
     //getters and setters
@@ -101,13 +101,13 @@ public class Animal implements Serializable {
         this.sexo = sexo;
     }
 
-//    public Zona getZona() {
- //       return zona;
- //   }
+    public Zona getZona() {
+        return zona;
+    }
 
-  //  public void setZona(Zona zona) {
- //       this.zona = zona;
- //   }
+    public void setZona(Zona zona) {
+        this.zona = zona;
+    }
 
     //metodos
     @Override
@@ -119,7 +119,7 @@ public class Animal implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.estado);
         hash = 67 * hash + Objects.hashCode(this.fechaNacimiento);
         hash = 67 * hash + Objects.hashCode(this.sexo);
-//        hash = 67 * hash + Objects.hashCode(this.zona);
+        hash = 67 * hash + Objects.hashCode(this.zona);
         return hash;
     }
 
@@ -153,15 +153,15 @@ public class Animal implements Serializable {
         if (!Objects.equals(this.sexo, other.sexo)) {
             return false;
         }
-//        if (!Objects.equals(this.zona, other.zona)) {
- //           return false;
- //       }
+        if (!Objects.equals(this.zona, other.zona)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "idAnimal=" + idAnimal + ", nombreAnimel=" + nombreAnimel + ", tipo=" + tipo + ", estado=" + estado + ", fechaNacimiento=" + fechaNacimiento + ", sexoAnimal=" + sexo + ", zona=" + '}';
+        return "Animal{" + "idAnimal=" + idAnimal + ", nombreAnimel=" + nombreAnimel + ", tipo=" + tipo + ", estado=" + estado + ", fechaNacimiento=" + fechaNacimiento + ", sexoAnimal=" + sexo + ", zona=" + zona + '}';
     }
 
 }

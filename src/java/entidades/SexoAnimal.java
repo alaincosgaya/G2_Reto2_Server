@@ -7,7 +7,7 @@ package entidades;
 
 /**
  *
- * @author 2dam
+ * @author Jonathan Camacho
  */
 public enum SexoAnimal {
     HEMBRA,MACHO

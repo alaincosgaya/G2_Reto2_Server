@@ -7,7 +7,7 @@ package entidades;
 
 /**
  *
- * @author 2dam
+ * @author Jonathan Camacho
  */
 public enum TipoAnimal {
     TORO,BUEY,VACA,CABALLO,YEGUA,ASNO,MULA,GALLO,GALLINA,
